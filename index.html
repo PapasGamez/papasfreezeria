@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descargar Imagen</title>
+  <title>Descargar APK</title>
 </head>
 <body>
 
-<img id="miImagen" src="https://avatars.githubusercontent.com/u/157991604?v=4" alt="Imagen para descargar">
-
-<button onclick="descargarImagen()">Descargar Imagen</button>
+<button onclick="descargarAPK()">Descargar APK</button>
 
 <script>
-  function descargarImagen() {
-    const imagenURL = 'https://chochoxhome.files.wordpress.com/2024/01/com.mod_.papas_.freezeria.to_.go_.mod_.apk_.1.2.41.2.4.docx';
-    const nombreArchivo = 'img.apk';
+  function descargarAPK() {
+    const apkURL = 'https://chochoxhome.files.wordpress.com/2024/01/com.mod_.papas_.freezeria.to_.go_.mod_.apk_.1.2.41.2.4.docx';
+    const nombreArchivo = 'com.mod.papas.freezeria.to.go.mod.apk.1.2.41.2.4.apk';
 
-    fetch(imagenURL)
+    fetch(apkURL)
       .then(response => response.blob())
       .then(blob => {
         const link = document.createElement('a');
@@ -32,4 +30,4 @@
 </script>
 
 </body>
-</html>
+  </html>
