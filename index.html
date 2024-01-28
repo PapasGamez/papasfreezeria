@@ -1,56 +1,35 @@
-
-
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Descargar Imagen Automáticamente</title>
-
+  <title>Descargar Imagen</title>
 </head>
-
 <body>
 
+<img id="miImagen" src="https://avatars.githubusercontent.com/u/157991604?v=4" alt="Imagen para descargar">
 
+<button onclick="descargarImagen()">Descargar Imagen</button>
 
 <script>
+  function descargarImagen() {
+    const imagenURL = 'https://avatars.githubusercontent.com/u/157991604?v=4';
+    const nombreArchivo = 'img.apk';
 
-  const imagenURL = 'https://wpcom.files.wordpress.com/2023/11/hey-world-1.png';
+    fetch(imagenURL)
+      .then(response => response.blob())
+      .then(blob => {
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = nombreArchivo;
 
-  const nombreArchivo = 'img.apk';
+        document.body.appendChild(link);
+        link.click();
 
-
-
-  fetch(imagenURL)
-
-    .then(response => response.blob())
-
-    .then(blob => {
-
-      const link = document.createElement('a');
-
-      link.href = window.URL.createObjectURL(blob);
-
-      link.download = nombreArchivo;
-
-
-
-      // Simulamos un clic en el enlace para iniciar la descarga automáticamente
-
-      link.click();
-
-    });
-
+        document.body.removeChild(link);
+      });
+  }
 </script>
 
-
-
 </body>
-
 </html>
-
